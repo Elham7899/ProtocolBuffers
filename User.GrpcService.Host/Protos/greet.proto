@@ -1,0 +1,60 @@
+syntax = "proto3";
+
+option csharp_namespace = "User.GrpcService.Host";
+
+package greet;
+
+
+service Greeter {
+
+  rpc GetUser (UserRequest) returns (UserReply);
+
+  rpc PostUser (UserPostRequest) returns (UserPostReply);
+
+  rpc DeleteUser(UserDeleteRequest) returns (UserDeleteReply);
+
+  rpc UpdateUser(UserUpdateRequest) returns (UserUpdateReply);
+}
+
+message UserRequest {
+	int32 id = 1;
+}
+
+message UserReply {
+	string firstName = 1;
+	string lastName = 2;
+	int32 NationalCode = 3;
+	string Birthday = 4;
+}
+
+message UserPostRequest {
+	int32 id = 1;
+	string firstName = 2;
+	string lastName = 3;
+	int32 NationalCode = 4;
+	string Birthday = 5;
+}
+
+message UserPostReply {
+	int32 id = 1;
+}
+
+message UserDeleteRequest{
+	int32 id = 1;
+}
+
+message UserDeleteReply{
+	string message = 1;
+}
+
+message UserUpdateRequest{
+	int32 id = 1;
+	string firstName = 2;
+	string lastName = 3;
+	int32 NationalCode = 4;
+	string Birthday = 5;
+}
+
+message UserUpdateReply{
+	string message = 1;
+}
